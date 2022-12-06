@@ -1,4 +1,4 @@
-import {Main} from 'main'
+import {Main} from 'web/main'
 const Home =()=> {
     return(<>
     <Main/></>)

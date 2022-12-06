@@ -1,4 +1,4 @@
-import { Home } from "main"
+import { Home } from "web/main"
 
 const App = () => {
   return (
