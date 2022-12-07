@@ -10,11 +10,11 @@ const App = () => {
 export default App
 */
 
-import { AppHomeG } from "application"
+import { AppHomeH } from "application"
 
 const App = () => {
   return (
-      <AppHomeG/>
+      <AppHomeH/>
       )
 }
 
