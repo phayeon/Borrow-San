@@ -1,4 +1,4 @@
-import { NavG, Claim, Error, Notice, SetPayInfo, SetPayModify, SetSettings, SetUInfo, SetUModify } from "application"
+import { NavG, Claim, Error, Notice, SetPayInfo, SetPayModify, SetSettings, SetUInfo, SetUModify, SetMain, MainRent, Main } from "application"
 import { Route, Routes } from "react-router-dom"
 
 const AppHomeG = () => {
@@ -21,6 +21,9 @@ const AppHomeG = () => {
                     <Route path="/setsettings" element={<SetSettings/>}></Route>
                     <Route path="/setuinfo" element={<SetUInfo/>}></Route>
                     <Route path="/setumodify" element={<SetUModify/>}></Route>
+                    <Route path="/setmain" element={<SetMain/>}></Route>
+                    <Route path="/mainrent" element={<MainRent/>}></Route>
+                    <Route path="/main" element={<Main/>}></Route>
                 </Routes>
                 </td>
             </tr>
