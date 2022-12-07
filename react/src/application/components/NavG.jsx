@@ -12,6 +12,10 @@ const NavG = () => <nav>
         <li><Link to="/setsettings">SetSettings</Link></li>
         <li><Link to="/setuinfo">SetUInfo</Link></li>
         <li><Link to="/setumodify">SetUModify</Link></li>
+        <li><Link to="/setmain">SetMain</Link></li>
+    <hr/>
+        <li><Link to="/mainrent">MainRent</Link></li>
+        <li><Link to="/main">Main</Link></li>
         
     </ul>
 </nav>
