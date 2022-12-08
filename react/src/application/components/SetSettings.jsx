@@ -1,4 +1,4 @@
-//san
+//san - merge
 import { Link } from "react-router-dom"
 
 const SetSettings = () => {

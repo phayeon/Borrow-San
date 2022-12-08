@@ -1,6 +1,8 @@
 import { NavG, Claim, Error, Notice, SetPayInfo, SetPayModify, SetSettings, SetUInfo, SetUModify, SetMain, MainRent, Main } from "application"
 import { Route, Routes } from "react-router-dom"
 
+// san - merge
+
 const AppHomeG = () => {
   return (<>
     <table style={{ width: "1200px", height: "550px", margin: "0 auto", border: "1px solid black"}}>
