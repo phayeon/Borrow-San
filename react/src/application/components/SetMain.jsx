@@ -1,10 +1,9 @@
-import { Link } from "react-router-dom"
-
 const SetMain = () => {
+    const backpage = () => {window.history.back()}
     return(
     <body>
     <h2>메뉴 화면</h2>
-    <nav><Link to="/main">Main</Link></nav>
+    <button onClick={backpage}>←</button>
     </body>
     )
 }
