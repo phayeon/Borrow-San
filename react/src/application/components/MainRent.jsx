@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8b168d2b38d05a8e5e32064707bb40b89d374253
 import { Link } from "react-router-dom"
 
 const MainRent = () => {
