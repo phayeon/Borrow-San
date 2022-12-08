@@ -6,7 +6,7 @@ const ImgReturn = () => {
                             window.location = "/main"}
     return (
         <body>
-        <button><Link to="/main">←</Link></button>
+        <button><Link to="/mainrent">←</Link></button>
         <label>우산 촬영</label><br/>
         <h1>카메라 자리</h1>
         <button onClick={RentInfo}>촬영</button><br/>

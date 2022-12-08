@@ -1,9 +1,8 @@
-//san - merge
 import { Link } from "react-router-dom"
 
 const SetUModify = () => {
     return(<>
-        <nav><Link to="/setuinfo">SetUInfo</Link></nav>
+        <nav><Link to="/setuinfo">←</Link></nav>
     사용자 정보 수정<br/><br/>
     이름: <input/><br/>
     이메일: <input placeholder="ex) e-mail_ID@mailadress.com"/><br/>

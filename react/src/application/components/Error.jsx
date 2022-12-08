@@ -1,10 +1,9 @@
-//san - merge
 import { Link } from "react-router-dom"
 
 const Error = () => {
     return(<>
     오류 보고
-    <nav><Link to="/mainrent">MainRent</Link></nav><br/>
+    <button><Link to="/mainrent">←</Link></button>
     제목 : <input></input><br/>
     내용 : <input></input><br/>
     <button>제출</button>
