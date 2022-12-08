@@ -2,9 +2,11 @@ import { Link } from "react-router-dom"
 
 
 const Notice = () => {
+
     return(<>
-    사용자 문의내역
-        <nav><Link to="/setmain">SetMain</Link></nav>
+    공지사항
+    <button><Link to="/setmain">←</Link></button>
+
     </>)
 }
 
