@@ -1,29 +1,37 @@
 
-
-tbody{
+table{
     flex-wrap: wrap;
     flex-direction: column; 
     align-items: center;
     justify-content: center;
 }
 
-tr {
+thead {
     display: flex;
-    height: 100%;
+    height: 80%;
     width: 100%;
     background-color: #B2FF66;
     text-align: center;
     flex-direction: column;
-    
+    border: 10em #B2FF66;
 }
 
-.navbar{
+tr {
+    display: flex;
+    height: 80%;
+    width: 100%;
+    background-color: #B2FF66;
+    text-align: center;
+    flex-direction: column;
+}
+
+nav{
     height: 100%;
     width: 100%;
     background-color: #B2FF66;
     display: flex;
     flex-direction: row-reverse;
-    border-color: none;
+
 }
 
 .white{
