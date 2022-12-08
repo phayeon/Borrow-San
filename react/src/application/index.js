@@ -1,5 +1,6 @@
 //components
 export {default as Claim} from 'application/components/Claim'
+export {default as SetClaim} from 'application/components/SetClaim'
 export {default as Error} from 'application/components/Error'
 export {default as ImgReturn} from 'application/components/ImgReturn'
 export {default as ImgUmb} from 'application/components/ImgUmb'
@@ -18,5 +19,6 @@ export {default as SetUModify} from 'application/components/SetUModify'
 export {default as SignUp} from 'application/components/SignUp'
 export {default as Start} from 'application/components/Start'
 export {default as Nav} from 'application/components/Nav'
+
 //containers
 export {default as AppHome} from 'application/containers/AppHome'

@@ -1,11 +1,12 @@
+import { Link } from "react-router-dom"
+
+
 const Claim = () => {
-    const backpage = () => {window.history.back()}
-    return(
-    <body>
-    <h2>사용자 문의</h2>
-    <button onClick={backpage}>←</button>
-    </body>
-    )
+
+    return(<>
+    사용자 문의 내역
+    <button><Link to="/setmain">←</Link></button>
+    </>)
 }
 
 export default Claim

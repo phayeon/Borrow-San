@@ -1,4 +1,4 @@
-import { Nav, Claim, Error, Notice, SetPayInfo, SetPayModify, SetSettings, SetUInfo, SetUModify, Main, Login, Start, SignUp, MainRent, QrScan, QrInput, ImgUmb, ImgReturn, SetMain } from "application"
+import { Nav, Claim, SetClaim, Error, Notice, SetPayInfo, SetPayModify, SetSettings, SetUInfo, SetUModify, Main, Login, Start, SignUp, MainRent, QrScan, QrInput, ImgUmb, ImgReturn, SetMain } from "application"
 import { Route, Routes } from "react-router-dom"
 
 const AppHomeG = () => {
@@ -14,6 +14,7 @@ const AppHomeG = () => {
                 <td style={{ width: "100%", border: "1px solid black"}}>
                 <Routes>
                     <Route path="/claim" element={<Claim/>}></Route>
+                    <Route path="/setclaim" element={<SetClaim/>}></Route>
                     <Route path="/error" element={<Error/>}></Route>
                     <Route path="/notice" element={<Notice/>}></Route>
                     <Route path="/setpayinfo" element={<SetPayInfo/>}></Route>
