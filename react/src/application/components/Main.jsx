@@ -10,9 +10,9 @@ const Main = () => {
         <body>
         <h2>메인화면</h2>
         <input placeholder="Secrch" name="search"/>
-        <button><Link to="/setmenu">메뉴</Link></button><br/>
+        <button><Link to="/setmain">메뉴</Link></button><br/>
         <button onClick={rentInfo}>☂</button>
-        <button><Link to="/claim">고객센터</Link></button><br/>
+        <button><Link to="/error">오류보고</Link></button><br/>
         <button><Link to="/qrscan">Borrow</Link></button>
         </body>
     )
