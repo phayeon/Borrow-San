@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom"
-
+import "web/main/style/Main.css"
 
 const Nav=()=>{
     return(<>
-    <nav className="navbar navbar-expand-lg gnav">
+    <nav className="navbar navbar-expand-lg gnav ">
         <div className="container-fluid">
             <a className="navbar-brand" href ="/main">Borrow-San</a>
                 
@@ -14,6 +14,9 @@ const Nav=()=>{
                 </li>
                 <li className="nav-item">
                     <a className="nav-link" href="#howto">이용방법</a>
+                </li>
+                <li className="nav-item">
+                    <a className="nav-link" href="#mapping">보관함 위치</a>
                 </li>
                 <li className="nav-item">
                     <Link to ="/notice" className="nav-link">공지사항</Link>
