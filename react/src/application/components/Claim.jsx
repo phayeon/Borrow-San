@@ -5,7 +5,7 @@ const Claim = () => {
 
     return(<>
     사용자 문의 내역
-    <button><Link to="/setmain">←</Link></button>
+    <button><Link to="/setmain">←(메뉴화면)</Link></button>
     </>)
 }
 
