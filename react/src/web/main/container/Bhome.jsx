@@ -1,4 +1,4 @@
-import {Main, Nav} from 'web/main'
+import { Main, Nav } from 'web/main'
 import { Route, Routes } from "react-router-dom"
 import { Notice } from 'web/notice'
 import { ManagerPages } from 'web/manager'
