@@ -37,3 +37,9 @@ nav{
 .white{
     background-color:white;
 }
+
+header {
+    position: sticky;
+    top: 0;
+    background-color: #B2FF66;
+  }
