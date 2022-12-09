@@ -5,7 +5,7 @@ const Notice = () => {
 
     return(<>
     공지사항
-    <button><Link to="/setmain">←</Link></button>
+    <button><Link to="/setmain">←(메뉴화면)</Link></button>
 
     </>)
 }
