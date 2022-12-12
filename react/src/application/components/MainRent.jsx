@@ -9,9 +9,9 @@ const MainRent = () => {
         {QIalert}
         <h1>메인화면(대여 중)</h1>
         <input placeholder="Secrch" name="search"/>
-        <button><Link to="/setmain">메뉴</Link></button><br/>
+        <button><Link target={"_blank"} to="/setmain">메뉴</Link></button><br/>
         <button><Link to="/imgumb">우산 촬영</Link></button><br/>
-        <button><Link to="/error">오류 보고</Link></button><br/>
+        <button><Link target={"_blank"} to="/error">오류 보고</Link></button><br/>
         <button><Link to="/imgreturn">반납하기</Link></button>
         </body>
     )
