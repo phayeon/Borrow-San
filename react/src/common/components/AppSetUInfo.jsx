@@ -1,7 +1,7 @@
 //san - merge
 import { Link } from "react-router-dom"
 
-const SetUInfo = () => {
+const AppSetUInfo = () => {
     return(<>
     사용자 정보
     <nav><Link to="/setmain">←</Link></nav><br/>
@@ -9,4 +9,4 @@ const SetUInfo = () => {
     </>)
 }
 
-export default SetUInfo
+export default AppSetUInfo

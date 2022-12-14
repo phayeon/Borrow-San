@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import "web/main/style/Main.css"
+//import "web/main/style/Main.css"
 
 const Nav=()=>{
     return(<>
