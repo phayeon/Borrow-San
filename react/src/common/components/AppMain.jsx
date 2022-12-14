@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-const Main = () => {
+const AppMain = () => {
     const rentInfo = () => {
         alert(
             "[장소명] 보관함\n상세 위치 정보\n잔여 우산 개수 : [null]")
@@ -18,4 +18,4 @@ const Main = () => {
     )
 }
 
-export default Main
+export default AppMain

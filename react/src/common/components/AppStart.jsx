@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-const Start = () => {
+const AppStart = () => {
     return (
     <body>
         <h1>시작화면</h1>
@@ -10,4 +10,4 @@ const Start = () => {
     )
 }
 
-export default Start
+export default AppStart

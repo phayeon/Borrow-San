@@ -1,8 +1,10 @@
 import { Route, Routes } from "react-router-dom"
-import {MngMenu, MngClaim, MngBox, MngDamage, MngDemand, MngNotice} from "web/manager"
-import "web/manager/style/Manager.css"
-import MngUserInfo from "../components/MngUserInfo"
+//import "web/manager/style/Manager.css"
 import { managing } from "../../../manager/api"
+import { MngBox } from "stands"
+import { MngDamage } from "umbrellas"
+import { MngUserInfo, MngDemand } from "common"
+
 
 const ManagerPages = ()=>{
     const onClick = e => {

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { useState } from "react"
 
-const SetPayModify = () => {
+const AppSetPayModify = () => {
     const [inputs, setInputs] = useState({})
     const {cname, cnumber, cexpm, cexpy, text} = inputs;
 
@@ -27,4 +27,4 @@ const SetPayModify = () => {
     </>)
 }
 
-export default SetPayModify
+export default AppSetPayModify
