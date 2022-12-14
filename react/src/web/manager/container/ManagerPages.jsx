@@ -2,8 +2,14 @@ import { Route, Routes } from "react-router-dom"
 import {MngMenu, MngClaim, MngBox, MngDamage, MngDemand, MngNotice} from "web/manager"
 import "web/manager/style/Manager.css"
 import MngUserInfo from "../components/MngUserInfo"
+import { managing } from "../api"
 
 const ManagerPages = ()=>{
+    const onClick = e => {
+        e.preventDefault()
+        managing()
+        alert("성공")
+    }
     return(<>
     <table>
     <thead>관리자명</thead>
@@ -19,8 +25,10 @@ const ManagerPages = ()=>{
             <Route path="*/mngdemand" element={<MngDemand/>}></Route>
             <Route path="*/mngnotice" element={<MngNotice/>}></Route>
         </Routes>
+        <button onClick={onClick}>managing</button>
+        
     </body>
     </>)
-}
+    }
 
 export default ManagerPages

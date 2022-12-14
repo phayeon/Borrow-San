@@ -31,18 +31,24 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'admins.apps.AdminsConfig',
-    'users.apps.UsersConfig',
-    'umbrellas.apps.UmbrellasConfig',
-    'stands.apps.StandsConfig',
-    'rents.apps.RentsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'admins',
+    'users',
+    'umbrellas',
+    'stands',
+    'rents',
+    "rest_framework"
 ]
+
+CORS_ORIGIN_WHITELIST = ['http://127.0.0.1:3000',
+                         'http://localhost:3000']
+CORS_ALLOW_CREDENTIALS = True
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
