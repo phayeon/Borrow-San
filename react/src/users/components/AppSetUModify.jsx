@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-const SetUModify = () => {
+const AppSetUModify = () => {
     return(<>
         <nav><Link to="/setuinfo">←</Link></nav>
     사용자 정보 수정<br/><br/>
@@ -13,4 +13,4 @@ const SetUModify = () => {
     </>)
 }
 
-export default SetUModify
+export default AppSetUModify

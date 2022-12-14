@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-const SetMain = () => {
+const AppSetMain = () => {
     const closepage = () => {window.close()}
     return(
     <body>
@@ -16,4 +16,4 @@ const SetMain = () => {
     )
 }
 
-export default SetMain
+export default AppSetMain
