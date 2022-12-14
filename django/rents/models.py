@@ -4,7 +4,6 @@ from admins.models import Admin
 from umbrellas.models import Umbrella
 from users.models import User
 
-
 class Rent(models.Model):
     use_in_migration = True
     rent_id = models.AutoField(primary_key=True)
@@ -15,7 +14,6 @@ class Rent(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     umbrella = models.ForeignKey(Umbrella,  on_delete=models.CASCADE)
     admin = models.ForeignKey(Admin, on_delete=models.CASCADE)
-
 
     class Meta:
         db_table = "rents"
