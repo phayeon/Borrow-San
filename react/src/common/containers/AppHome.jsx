@@ -1,4 +1,4 @@
-import { AppLogin, AppMain, AppMainRent, AppNav, AppSetPayInfo, AppSetPayModify, AppSetSettings, AppSetUInfo, AppStart } from "common"
+import { MngClaim, MngNotice, AppLogin, AppMain, AppMainRent, AppNav, AppSetPayInfo, AppSetPayModify, AppSetSettings, AppSetUInfo, AppStart } from "common"
 import { AppQrScan, AppQrInput, AppImgReturn, AppImgUmb } from "umbrellas"
 import { AppSetUModify, AppSignUp, AppSetMain } from "users"
 import { Route, Routes } from "react-router-dom"
@@ -15,6 +15,11 @@ const AppHome = () => {
             <tr style={{ width: "20%",height: "80%",  border: "1px solid black"}}>
                 <td style={{ width: "100%", border: "1px solid black"}}>
                 <Routes>
+                    <Route path="/claim" element={<MngClaim/>}></Route>
+                    <Route path="/setclaim" element={<MngClaim/>}></Route>
+                    <Route path="/error" element={<MngClaim/>}></Route>
+                    <Route path="/notice" element={<MngNotice/>}></Route>
+
                     <Route path="/setpayinfo" element={<AppSetPayInfo/>}></Route>
                     <Route path="/setpaymodify" element={<AppSetPayModify/>}></Route>
                     <Route path="/setsettings" element={<AppSetSettings/>}></Route>

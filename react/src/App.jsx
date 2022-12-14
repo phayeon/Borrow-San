@@ -10,7 +10,6 @@ const App = () => {
 
 export default App
 */
-
 import { ManagerPages } from "common"
 
 const App = () => {

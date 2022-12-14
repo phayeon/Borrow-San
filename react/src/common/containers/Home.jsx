@@ -1,6 +1,5 @@
-
 import { Route, Routes } from "react-router-dom"
-import { Nav, Main, ManagerPages } from "common"
+import { Nav, Main, MngNotice, ManagerPages } from "common"
 
 const Home = ()=> {
     return(<>
@@ -12,6 +11,7 @@ const Home = ()=> {
             <Routes>
                 <Route path="/" element={<Main/>}></Route>
                 <Route path="/main" element={<Main/>}></Route>
+                <Route path="/notice" element={<MngNotice/>}></Route>
                 <Route path="/mn/*" element={<ManagerPages/>}></Route>
             </Routes>
         </div>
