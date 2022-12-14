@@ -1,4 +1,4 @@
-/*
+
 
 import { Bhome } from "web/main"
 
@@ -10,8 +10,8 @@ const App = () => {
 
 export default App
 
-*/
 
+/*
 import { AppHome } from "application"
 
 const App = () => {
@@ -21,3 +21,4 @@ const App = () => {
 }
 
 export default App
+*/
