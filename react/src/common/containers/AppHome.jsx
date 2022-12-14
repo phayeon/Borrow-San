@@ -1,6 +1,6 @@
 import { AppLogin, AppMain, AppMainRent, AppNav, AppSetPayInfo, AppSetPayModify, AppSetSettings, AppSetUInfo, AppStart } from "common"
 import { AppQrScan, AppQrInput, AppImgReturn, AppImgUmb } from "umbrellas"
-import { AppSetUModify } from "users"
+import { AppSetUModify, AppSignUp, AppSetMain } from "users"
 import { Route, Routes } from "react-router-dom"
 
 const AppHome = () => {
@@ -15,10 +15,6 @@ const AppHome = () => {
             <tr style={{ width: "20%",height: "80%",  border: "1px solid black"}}>
                 <td style={{ width: "100%", border: "1px solid black"}}>
                 <Routes>
-                    <Route path="/claim" element={<AppClaim/>}></Route>
-                    <Route path="/setclaim" element={<AppSetClaim/>}></Route>
-                    <Route path="/error" element={<AppError/>}></Route>
-                    <Route path="/notice" element={<AppNotice/>}></Route>
                     <Route path="/setpayinfo" element={<AppSetPayInfo/>}></Route>
                     <Route path="/setpaymodify" element={<AppSetPayModify/>}></Route>
                     <Route path="/setsettings" element={<AppSetSettings/>}></Route>
@@ -33,7 +29,7 @@ const AppHome = () => {
                     <Route path="/qrinput" element={<AppQrInput/>}></Route>
                     <Route path="/imgumb" element={<AppImgUmb/>}></Route>
                     <Route path="/imgreturn" element={<AppImgReturn/>}></Route>
-                    <Route path="/setmain" element={<SetMain/>}></Route>
+                    <Route path="/setmain" element={<AppSetMain/>}></Route>
                 </Routes>
                 </td>
             </tr>

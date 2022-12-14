@@ -12,7 +12,6 @@ const Home = ()=> {
             <Routes>
                 <Route path="/" element={<Main/>}></Route>
                 <Route path="/main" element={<Main/>}></Route>
-                <Route path="/notice" element={<Notice/>}></Route>
                 <Route path="/mn/*" element={<ManagerPages/>}></Route>
             </Routes>
         </div>
