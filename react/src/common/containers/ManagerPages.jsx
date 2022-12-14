@@ -1,6 +1,4 @@
 import { Route, Routes } from "react-router-dom"
-//import "web/manager/style/Manager.css"
-import { managing } from "../../../manager/api"
 import { MngBox } from "stands"
 import { MngDamage } from "umbrellas"
 import { MngUserInfo, MngDemand } from "common"

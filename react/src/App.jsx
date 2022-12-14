@@ -1,18 +1,15 @@
-
-
-import { Bhome } from "web/main"
+import { Home } from "common"
 
 const App = () => {
   return (
-      <Bhome/>
+      <Home/>
       )
 }
 
 export default App
 
-
 /*
-import { AppHome } from "application"
+import { AppHome } from "common"
 
 const App = () => {
   return (
