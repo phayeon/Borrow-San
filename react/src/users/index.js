@@ -1,24 +1,7 @@
 //components
-export {default as Claim} from 'application/components/Claim'
-export {default as SetClaim} from 'application/components/SetClaim'
-export {default as Error} from 'application/components/Error'
-export {default as ImgReturn} from 'application/components/ImgReturn'
-export {default as ImgUmb} from 'application/components/ImgUmb'
-export {default as Login} from 'application/components/Login'
-export {default as Main} from 'application/components/Main'
-export {default as MainRent} from 'application/components/MainRent'
-export {default as Notice} from 'application/components/Notice'
-export {default as QrScan} from 'application/components/QrScan'
-export {default as QrInput} from 'application/components/QrInput'
-export {default as SetMain} from 'application/components/SetMain'
-export {default as SetPayInfo} from 'application/components/SetPayInfo'
-export {default as SetPayModify} from 'application/components/SetPayModify'
-export {default as SetSettings} from 'application/components/SetSettings'
-export {default as SetUInfo} from 'application/components/SetUInfo'
-export {default as SetUModify} from 'application/components/SetUModify'
-export {default as SignUp} from 'application/components/SignUp'
-export {default as Start} from 'application/components/Start'
-export {default as Nav} from 'application/components/Nav'
+export {default as AppSetUModify} from 'users/components/AppSetUModify'
+export {default as AppSignUp} from 'users/components/AppSignUp'
+
 
 //containers
-export {default as AppHome} from 'application/containers/AppHome'
+export {default as AppSetMain} from 'users/container/AppSetMain'
