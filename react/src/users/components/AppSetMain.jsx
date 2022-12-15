@@ -1,9 +1,17 @@
 import { Link } from "react-router-dom"
+import { AppSetMainGet } from "users/api"
+
 const AppSetMain = () => {
     const closepage = () => {window.close()}
+    const getClick = e => {
+        e.preventDefault()
+        alert(`작업 요청`)
+        AppSetMainGet(Request)
+    }
     return(
     <body>
     <h2>메뉴 화면</h2>
+    <button onClick={getClick}>Django Test</button><br/>
     <button onClick={closepage}>←</button>
 
     <nav><Link to="/setuinfo">사용자 정보</Link></nav><br/>
