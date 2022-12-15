@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-const QrInput = () => {
+const AppQrInput = () => {
     const QIalert = () => {
         alert(`대여함 코드 : [null]\n우산 코드 : [null]\n이 맞나요?`)
         window.location = "/mainrent"
@@ -18,4 +18,4 @@ const QrInput = () => {
     )
 }
 
-export default QrInput
+export default AppQrInput

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-const QrScan = () => {
+const AppQrScan = () => {
     return (
         <body>
         <button><Link to="/main">←</Link></button>
@@ -13,4 +13,4 @@ const QrScan = () => {
     )
 }
 
-export default QrScan
+export default AppQrScan

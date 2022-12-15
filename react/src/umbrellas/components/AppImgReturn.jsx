@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-const ImgReturn = () => {
+const AppImgReturn = () => {
     const ImgGuide = () => {alert(`촬영 가이드(임시)`)}
     const RentInfo = () => {alert(`사용시간 : [null]\n지불금액 : [null]`)
                             window.location = "/main"}
@@ -16,4 +16,4 @@ const ImgReturn = () => {
     )
 }
 
-export default ImgReturn
+export default AppImgReturn

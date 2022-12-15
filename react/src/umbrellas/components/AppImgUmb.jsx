@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-const ImgUmb = () => {
+const AppImgUmb = () => {
     const ImgGuide = () => {
         alert(`촬영 가이드(임시)`)
     }
@@ -16,4 +16,4 @@ const ImgUmb = () => {
     )
 }
 
-export default ImgUmb
+export default AppImgUmb

@@ -19,4 +19,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path("admin/", include('admins.urls')),
+    path("umbrella/", include('umbrellas.urls'))
 ]

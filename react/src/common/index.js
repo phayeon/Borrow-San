@@ -12,8 +12,7 @@ export {default as Main} from 'common/components/Main'
 export {default as MngDemand} from 'common/components/MngDemand'
 export {default as MngMenu} from 'common/components/MngMenu'
 export {default as MngUserInfo} from 'common/components/MngUserInfo'
-export {default as Nav} from 'common/components/Nav'
-
+export {default as Nav} from 'common/components/Nav' 
 //containers
 export {default as AppHome} from 'common/containers/AppHome'
 export {default as Home} from 'common/containers/Home'

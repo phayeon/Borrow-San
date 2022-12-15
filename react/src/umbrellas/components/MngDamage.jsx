@@ -1,9 +1,6 @@
-import um from "web/manager/img/map.PNG"
-
 const MngDamage= ()=> {
     return(<>
     <h3>파손 조회</h3>
-    <img src={um}/>
     <table class="table">
         <thead>
             <td>
