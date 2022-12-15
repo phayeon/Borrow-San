@@ -1,7 +1,15 @@
+import { AppSetMain } from "../api"
+
 const MngBox =()=>{
+    const getClick = e => {
+        e.preventDefault()
+        alert(`작업 요청`)
+        AppSetMain(Request)
+    }
     return(<>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossOrigin="anonymous"/>
     <h3>보관함 조회</h3>
+    <button onClick={getClick}>Django Test</button>
     <table class="table">
         <thead>
             <td>
