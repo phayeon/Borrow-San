@@ -19,7 +19,6 @@ const AppHome = () => {
                     <Route path="/setclaim" element={<MngClaim/>}></Route>
                     <Route path="/error" element={<MngClaim/>}></Route>
                     <Route path="/notice" element={<MngNotice/>}></Route>
-
                     <Route path="/setpayinfo" element={<AppSetPayInfo/>}></Route>
                     <Route path="/setpaymodify" element={<AppSetPayModify/>}></Route>
                     <Route path="/setsettings" element={<AppSetSettings/>}></Route>
