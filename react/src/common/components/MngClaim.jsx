@@ -1,4 +1,19 @@
+import { mngclaim } from "common/api"
+
 const MngClaim = () => {
+    const testClick = e => {
+        e.preventDefault()
+        mngclaim()
+        .then((res)=>{
+            console.log(res)
+            localStorage.setItem('연결 성공')
+            alert(`연결 성공`)
+        })
+        .catch((err)=>{
+            console.log(err)
+            alert('연결 실패')
+        })
+    }
     return(<>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossOrigin="anonymous"/>
@@ -30,6 +45,8 @@ const MngClaim = () => {
         </div>
         
     </div>
+        <br/><br/><br/>
+        <button onClick={testClick}> 연결 확인 </button>
     </>)
 }
 export default MngClaim
