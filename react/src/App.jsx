@@ -1,6 +1,7 @@
 
 /*
 import { Home } from "common"
+
 const App = () => {
   return (
       <Home/>
@@ -8,6 +9,7 @@ const App = () => {
 }
 export default App
 */
+
 /*
 import { ManagerPages } from "common"
 const App = () => {
@@ -18,8 +20,7 @@ const App = () => {
 export default App
 */
 
-/*
-import { AppHome } from "application"
+import { AppHome } from "common"
 
 const App = () => {
   return (
@@ -28,4 +29,3 @@ const App = () => {
 }
 
 export default App
-*/

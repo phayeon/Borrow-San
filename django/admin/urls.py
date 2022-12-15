@@ -19,5 +19,11 @@ from django.urls import path, include
 
 urlpatterns = [
     path("admin/", include('admins.urls')),
+<<<<<<< HEAD
     path("umbrella/", include('umbrellas.urls'))
+=======
+    path("common/", include('common.urls')),
+    path("stands/", include('stands.urls')),
+    path("users/", include('users.urls')),
+>>>>>>> b7984c4c5e8bd3b984d0353ab3fe248d41dd2712
 ]
