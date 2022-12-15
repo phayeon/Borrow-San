@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-const AppSignup = () => {
+const AppSignUp = () => {
     
     return (
         <body>
@@ -21,4 +21,4 @@ const AppSignup = () => {
     )
 }
 
-export default AppSignup
+export default AppSignUp

@@ -9,7 +9,7 @@ const AppSetUModify = () => {
     성별: <input placeholder=" ex) mail or femail "/><br/>
     생년월일: <input placeholder=" ex) 20221208 "/><br/>
     전화번호: <input placeholder="ex) 01012345678"/><br/>
-    <button> 취소 </button><button> 등록 </button>
+    <button> 취소 </button><button><Link to="/setuinfo"> 등록 </Link></button>
     </>)
 }
 
