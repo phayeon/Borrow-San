@@ -13,9 +13,11 @@ class Crawling(object):
         global path
         path = r'C:\Users\bitcamp\PycharmProjects\Borrow-San\django\img_detect_lee\save'
     def image_crawling(self):
-        search = "손 사진"   # 이미지 이름
-        count = 50    # 크롤링할 이미지 개수
-        saveurl = r"C:\Users\bitcamp\PycharmProjects\Borrow-San\django\img_detect_lee\save\hands"  # 이미지들을 저장할 폴더 주소
+        search_hand = "손 사진"   # 이미지 이름
+        search_umb = "우산"   # 이미지 이름
+        count = 100    # 크롤링할 이미지 개수
+        save_hand = r"C:\Users\bitcamp\PycharmProjects\Borrow-San\django\img_detect_lee\save\hands"  # 이미지들을 저장할 폴더 주소
+        save_umb = r"C:\Users\bitcamp\PycharmProjects\Borrow-San\django\img_detect_lee\save\umbrella"
 
         options = webdriver.ChromeOptions()
         options.headless = True
@@ -24,7 +26,7 @@ class Crawling(object):
         driver = webdriver.Chrome(options=options)  #options=options
         driver.get("https://www.google.co.kr/imghp?hl=ko&tab=wi&ogbl")
         elem = driver.find_element_by_name("q")
-        elem.send_keys(search)
+        elem.send_keys(search_hand)
 
         elem.send_keys(Keys.RETURN)
 
@@ -64,7 +66,7 @@ class Crawling(object):
                 time.sleep(1)
 
                 imgUrl = driver.find_element_by_css_selector(".n3VNCb").get_attribute("src")
-                urllib.request.urlretrieve(imgUrl, saveurl + '/' + str(i) + ".jpg")    # 이미지 다운
+                urllib.request.urlretrieve(imgUrl, save_hand + '/' + str(i) + ".jpg")    # 이미지 다운
 
             except:
                 pass
