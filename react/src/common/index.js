@@ -16,7 +16,6 @@ export {default as Nav} from 'common/components/Nav'
 export {default as MngNotice} from 'common/components/MngNotice'
 export {default as MngClaim} from 'common/components/MngClaim'
 
-
 //containers
 export {default as AppHome} from 'common/containers/AppHome'
 export {default as Home} from 'common/containers/Home'

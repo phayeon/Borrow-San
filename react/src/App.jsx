@@ -7,18 +7,16 @@ const App = () => {
       <Home/>
       )
 }
-
 export default App
 */
+
 /*
 import { ManagerPages } from "common"
-
 const App = () => {
   return (
       <ManagerPages/>
       )
 }
-
 export default App
 */
 

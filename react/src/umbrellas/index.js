@@ -5,3 +5,5 @@ export {default as AppImgReturn} from 'umbrellas/components/AppImgReturn'
 export {default as AppImgUmb} from 'umbrellas/components/AppImgUmb'
 export {default as MngDamage} from 'umbrellas/components/MngDamage'
 //containers
+
+export {default as Umb} from 'umbrellas/container/Umb'
