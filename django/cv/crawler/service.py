@@ -10,15 +10,15 @@ os.environ['KMP_DUPLICATE_LIB_OK']='True'
 
 class Crawling(object):
     def __init__(self):
-        global path
-        path = r'C:\Users\bitcamp\PycharmProjects\Borrow-San\django\img_detect_lee\save'
-    def image_crawling(self):
+        global path, search_hand, search_umb, count, save_hand, save_umb
+        path = r'C:\Users\AIA\PycharmProjects\Borrow-San\django\cv\crawler\save'
         search_hand = "손 사진"   # 이미지 이름
         search_umb = "우산"   # 이미지 이름
         count = 100    # 크롤링할 이미지 개수
-        save_hand = r"C:\Users\bitcamp\PycharmProjects\Borrow-San\django\img_detect_lee\save\hands"  # 이미지들을 저장할 폴더 주소
-        save_umb = r"C:\Users\bitcamp\PycharmProjects\Borrow-San\django\img_detect_lee\save\umbrella"
+        save_hand = f'{path}\\hands'  # 이미지들을 저장할 폴더 주소
+        save_umb = f'{path}\\umbrellas'
 
+    def image_crawling(self):
         options = webdriver.ChromeOptions()
         options.headless = True
         options.add_argument("window-size=1920x1080")
@@ -47,33 +47,27 @@ class Crawling(object):
             new_height = driver.execute_script("return document.body.scrollHeight")
 
             if new_height == last_height:
-
                 try:
                     driver.find_element_by_css_selector(".mye4qd").click()
-
                 except:
                     break
-
             last_height = new_height
 
         #이미지 찾고 다운받기
         images = driver.find_elements_by_css_selector(".rg_i.Q4LuWd")
 
         for i in range(count):
-
             try:
                 images[i].click() # 이미지 클릭
                 time.sleep(1)
-
                 imgUrl = driver.find_element_by_css_selector(".n3VNCb").get_attribute("src")
                 urllib.request.urlretrieve(imgUrl, save_hand + '/' + str(i) + ".jpg")    # 이미지 다운
-
             except:
                 pass
         driver.close()
 
     def image_labeling(self):
-        img = keras.preprocessing.image.load_img(r'C:\Users\bitcamp\PycharmProjects\Borrow-San\django\img_detect_lee\save\umbrella\umbrella (1).jpg', target_size=(250, 250))
+        img = keras.preprocessing.image.load_img(f'{save_umb}\\umbrella(1).jpg', target_size=(250, 250))
         img = keras.preprocessing.image.img_to_array(img)
         print(img)
 
