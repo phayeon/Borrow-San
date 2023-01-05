@@ -10,14 +10,20 @@ os.environ['KMP_DUPLICATE_LIB_OK']='True'
 
 class Crawling(object):
     def __init__(self):
-        global path
+        global path, search_hand, search_face, search_umb, count, save_hand, save_face, save_umb, search_cloth, save_cloth
         path = r'C:\Users\bitcamp\PycharmProjects\Borrow-San\django\img_detect_lee\save'
-    def image_crawling(self):
-        search_hand = "손 사진"   # 이미지 이름
-        search_umb = "우산"   # 이미지 이름
-        count = 100    # 크롤링할 이미지 개수
-        save_hand = r"C:\Users\bitcamp\PycharmProjects\Borrow-San\django\img_detect_lee\save\hands"  # 이미지들을 저장할 폴더 주소
+        search_hand = "손 사진"  # 이미지 이름
+        search_face = "얼굴 사진"
+        search_cloth = "옷 사진"
+        search_umb = "우산 사진"  # 이미지 이름
+        count = 10000  # 크롤링할 이미지 개수
+        save_hand = r"C:\Users\bitcamp\PycharmProjects\Borrow-San\django\img_detect_lee\save\hand"  # 이미지들을 저장할 폴더 주소
+        save_face = r"C:\Users\bitcamp\PycharmProjects\Borrow-San\django\img_detect_lee\save\face"
+        save_cloth = r"C:\Users\bitcamp\PycharmProjects\Borrow-San\django\img_detect_lee\save\cloth"
         save_umb = r"C:\Users\bitcamp\PycharmProjects\Borrow-San\django\img_detect_lee\save\umbrella"
+    def image_crawling(self):
+        search = search_cloth
+        save_path = save_cloth
 
         options = webdriver.ChromeOptions()
         options.headless = True
@@ -26,7 +32,7 @@ class Crawling(object):
         driver = webdriver.Chrome(options=options)  #options=options
         driver.get("https://www.google.co.kr/imghp?hl=ko&tab=wi&ogbl")
         elem = driver.find_element_by_name("q")
-        elem.send_keys(search_hand)
+        elem.send_keys(search)
 
         elem.send_keys(Keys.RETURN)
 
@@ -47,12 +53,9 @@ class Crawling(object):
             new_height = driver.execute_script("return document.body.scrollHeight")
 
             if new_height == last_height:
-
-                try:
-                    driver.find_element_by_css_selector(".mye4qd").click()
-
-                except:
-                    break
+                driver.find_element_by_css_selector(".mye4qd").click()
+            else:
+                break
 
             last_height = new_height
 
@@ -60,16 +63,12 @@ class Crawling(object):
         images = driver.find_elements_by_css_selector(".rg_i.Q4LuWd")
 
         for i in range(count):
+            images[i].click() # 이미지 클릭
+            time.sleep(1)
 
-            try:
-                images[i].click() # 이미지 클릭
-                time.sleep(1)
+            imgUrl = driver.find_element_by_css_selector(".n3VNCb").get_attribute("src")
+            urllib.request.urlretrieve(imgUrl, save_path + '/' + str(i) + ".jpg")    # 이미지 다운
 
-                imgUrl = driver.find_element_by_css_selector(".n3VNCb").get_attribute("src")
-                urllib.request.urlretrieve(imgUrl, save_hand + '/' + str(i) + ".jpg")    # 이미지 다운
-
-            except:
-                pass
         driver.close()
 
     def image_labeling(self):
@@ -100,5 +99,7 @@ class Crawling(object):
         plt.axis("off")
         plt.show()
 
+
+
 if __name__ == '__main__':
-    Crawling().image_labeling()
+    Crawling().image_crawling()
