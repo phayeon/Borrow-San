@@ -92,7 +92,7 @@ class UmbModel():
         self.test_ds_no_shuffle = test_ds_no_shuffle
 
         plt.figure(figsize=(3,3))
-        plt.imshow(x[0].astype("uint8"))
+        plt.imshow(x[-1].astype("uint8"))
         plt.title(self.class_names[y[-1]])
         plt.axis("off")
         plt.show()
@@ -150,46 +150,26 @@ class UmbModel():
 
         plt.figure(figsize=(10,5))
         plt.subplot(1,2,1)
-        plt.plot(epochs_range, acc, label='Training Accuracy')
+        plt.plot(epochs_range, acc, label='originTraining Accuracy')
         plt.plot(epochs_range, val_acc, label='Validation Accuracy')
         plt.legend(loc='lower right')
-        plt.title('Training and Validation Accuracy')
+        plt.title('originTraining and Validation Accuracy')
 
         plt.subplot(1,2,2)
-        plt.plot(epochs_range, loss, label='Training Loss')
+        plt.plot(epochs_range, loss, label='originTraining Loss')
         plt.plot(epochs_range, val_loss, label='Validation Loss')
         plt.legend(loc='lower right')
-        plt.title('Training and Validation Loss')
+        plt.title('originTraining and Validation Loss')
         plt.show()
 
     def predict(self):
         predictions = self.model.predict(self.test_ds_no_shuffle)
         score = tf.nn.softmax(predictions[0])
-        print('This image most likely belongs to {} with a {:.2f} percent confidence'
+        print('This image(non umbrella) most likely belongs to {} with a {:.2f} percent confidence'
               .format(self.class_names[np.argmax(score)], 100*np.max(score)))
         score = tf.nn.softmax(predictions[-1])
-        print('This image most likely belongs to {} with a {:.2f} percent confidence'
-              .format(self.class_names[np.argmax(score)], 100*np.max(score)))
-
-class UmbService():
-    history = None
-    def __init__(self):
-        global savepath, model
-        savepath = r"C:\Users\bitcamp\PycharmProjects\Borrow-San\django\img_detect_lee\save"
-        model = keras.models.load_model(savepath+"CNNClassifier.h5")
-        self.class_names = None
-        self.test_ds_no_shuffle = None
-
-    def predict(self):
-        predictions = model.predict(self.test_ds_no_shuffle)
-        score = tf.nn.softmax(predictions[0])
-        print('This image most likely belongs to {} with a {:.2f} percent confidence'
-              .format(self.class_names[np.argmax(score)], 100*np.max(score)))
-
-        score = tf.nn.softmax(predictions[-1])
-        print('This image most likely belongs to {} with a {:.2f} percent confidence'
+        print('This image(umbrella) most likely belongs to {} with a {:.2f} percent confidence'
               .format(self.class_names[np.argmax(score)], 100*np.max(score)))
 
 if __name__ == '__main__':
     UmbModel().hook()
-    #UmbService().predict()

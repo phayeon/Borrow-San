@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 from matplotlib import pyplot as plt
 
-image_bgr = cv2.imread(r'C:\Users\bitcamp\Desktop\sample.jpg')
+image_bgr = cv2.imread(r'C:\Users\bitcamp\PycharmProjects\Borrow-San\django\img_detect_lee\save\originTest\0-non-umbrella\0 (1).jpg')
 image_rgb = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB)
 # 사각형 좌표: 시작점의 x,y  ,넢이, 너비
 rectangle = (0, 56, 256, 150)
