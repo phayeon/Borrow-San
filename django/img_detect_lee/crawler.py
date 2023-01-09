@@ -10,7 +10,7 @@ os.environ['KMP_DUPLICATE_LIB_OK']='True'
 
 class Crawling(object):
     def __init__(self):
-        global path, search_hand, search_face, search_umb, count, save_hand, save_face, save_umb, search_cloth, save_cloth
+        global path, search_hand, search_face, search_umb, count, save_hand, save_face, save_umb, search_cloth, save_cloth, hand_language
         path = r'C:\Users\bitcamp\PycharmProjects\Borrow-San\django\img_detect_lee\save'
         search_hand = "손 사진"  # 이미지 이름
         search_face = "얼굴 사진"
@@ -21,55 +21,78 @@ class Crawling(object):
         save_face = r"C:\Users\bitcamp\PycharmProjects\Borrow-San\django\img_detect_lee\save\face"
         save_cloth = r"C:\Users\bitcamp\PycharmProjects\Borrow-San\django\img_detect_lee\save\cloth"
         save_umb = r"C:\Users\bitcamp\PycharmProjects\Borrow-San\django\img_detect_lee\save\umbrella"
+
+        hand_language = ["手", "hand", "χέρι", "tangan", "қол", "mà", "ਹੱਥ", "हात", "idejn", "ହାତ",
+                         "ಕೈ", "hånd", "mão", "mano", "ręka", "လက်", "qo'l", "руку", "käsi", "kamay",
+                         "ձեռքը", "হাত", "kéz", "hönd", "हाथ", "ръка", "əl", "ხელი", "हस्त", "มือ",
+                         "dorë"]
+
+        face_language = ["nägu", "лице", "nkhope", "ýüzi", "tarehy", "waji", "vizaĝo", "tvář", "ચહેરો", "മുഖം", "face",
+                         "πρόσωπο", "muka", "gezicht", "अनुहार", "wiċċ", "ansikte", "ମୁହଁ", "ಮುಖ", "ansikt", "нүүр",
+                         "ansigt", "rostro", "faccia", "Twarz", "चेहरा", "မျက်နှာ", "tvár", "yuz", "ubuso", "Visage",
+                         "Gesicht", "hmai", "обличчя", "चेरो", "wyneb", "ໃບຫນ້າ", "මුහුණ", "sejas", "đối mặt", "faciem",
+                         "твар", "դեմքը", "лицо", "মুখ", "viso", "មុខ", "ajanu", "wajah", "mu maso", "față", "चेहरा",
+                         "andlit", "rupa", "жүзү", "Gesiicht", "顔", "முகம்", "चेहरा", "veidas", "чеҳра", "elongi",
+                         "სახე", "йөз", "चेहरा", "gesig", "ubuso", "ใบหน้า", "fytyrë", "脸", "yüz", "चेहरा", "nawong",
+                         "ፊት", "臉", "ముఖం"]
+
+
     def image_crawling(self):
-        search = search_cloth
-        save_path = save_cloth
+        for x,y in enumerate(hand_language):
+            search = y
+            save_path = r"D:\hand"
 
-        options = webdriver.ChromeOptions()
-        options.headless = True
-        options.add_argument("window-size=1920x1080")
+            options = webdriver.ChromeOptions()
+            options.headless = True
+            options.add_argument("window-size=1920x1080")
 
-        driver = webdriver.Chrome(options=options)  #options=options
-        driver.get("https://www.google.co.kr/imghp?hl=ko&tab=wi&ogbl")
-        elem = driver.find_element_by_name("q")
-        elem.send_keys(search)
+            driver = webdriver.Chrome(options=options)  #options=options
+            driver.get("https://www.google.co.kr/imghp?hl=ko&tab=wi&ogbl")
+            elem = driver.find_element_by_name("q")
+            elem.send_keys(search)
 
-        elem.send_keys(Keys.RETURN)
+            elem.send_keys(Keys.RETURN)
 
-        # 페이지 끝까지 스크롤 내리기
-        SCROLL_PAUSE_TIME = 1
-        # 스크롤 깊이 측정하기
-        last_height = driver.execute_script("return document.body.scrollHeight")
+            # 페이지 끝까지 스크롤 내리기
+            SCROLL_PAUSE_TIME = 1
+            # 스크롤 깊이 측정하기
+            last_height = driver.execute_script("return document.body.scrollHeight")
 
-        # 스크롤 끝까지 내리기
+            # 스크롤 끝까지 내리기
 
-        while True:
+            while True:
 
-            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-            # 페이지 로딩 기다리기
-            time.sleep(SCROLL_PAUSE_TIME)
-            # 더 보기 요소 있을 경우 클릭하기
+                driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+                # 페이지 로딩 기다리기
+                time.sleep(SCROLL_PAUSE_TIME)
+                # 더 보기 요소 있을 경우 클릭하기
 
-            new_height = driver.execute_script("return document.body.scrollHeight")
+                new_height = driver.execute_script("return document.body.scrollHeight")
 
-            if new_height == last_height:
-                driver.find_element_by_css_selector(".mye4qd").click()
-            else:
-                break
+                if new_height == last_height:
 
-            last_height = new_height
+                    try:
+                        driver.find_element_by_css_selector(".mye4qd").click()
 
-        #이미지 찾고 다운받기
-        images = driver.find_elements_by_css_selector(".rg_i.Q4LuWd")
+                    except:
+                        break
 
-        for i in range(count):
-            images[i].click() # 이미지 클릭
-            time.sleep(1)
+                last_height = new_height
 
-            imgUrl = driver.find_element_by_css_selector(".n3VNCb").get_attribute("src")
-            urllib.request.urlretrieve(imgUrl, save_path + '/' + str(i) + ".jpg")    # 이미지 다운
+            #이미지 찾고 다운받기
+            images = driver.find_elements_by_css_selector(".rg_i.Q4LuWd")
 
-        driver.close()
+            for i in range(count):
+
+                try:
+                    images[i].click()  # 이미지 클릭
+                    time.sleep(1)
+
+                    imgUrl = driver.find_element_by_css_selector(".n3VNCb").get_attribute("src")
+                    urllib.request.urlretrieve(imgUrl, save_path + '/' + str(i) + ".jpg")    # 이미지 다운
+                except:
+                    pass
+            driver.close()
 
     def image_labeling(self):
         img = keras.preprocessing.image.load_img(r'C:\Users\bitcamp\PycharmProjects\Borrow-San\django\img_detect_lee\save\umbrella\umbrella (1).jpg', target_size=(250, 250))
@@ -102,4 +125,4 @@ class Crawling(object):
 
 
 if __name__ == '__main__':
-    Crawling().image_crawling()
+        Crawling().image_crawling()

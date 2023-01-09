@@ -11,7 +11,7 @@ from users.service import AppSignUp_Service
 def App_Sign_Up_Get(request):
     print(f'App_Sign_Up_Get : {request}')
     AppSignUp_Service().hook()
-    return JsonResponse({'Response Test ': 'SUCCESS'})
+    return JsonResponse({'Response originTest ': 'SUCCESS'})
 
 
 @api_view(['GET'])
@@ -19,7 +19,7 @@ def App_Sign_Up_Get(request):
 def App_Set_U_Modify_Get(request):
     print(f'App_Set_U_Modify_Get : {request}')
     AppSignUp_Service().hook()
-    return JsonResponse({'Response Test ': 'SUCCESS'})
+    return JsonResponse({'Response originTest ': 'SUCCESS'})
 
 
 @api_view(['POST'])
@@ -27,4 +27,4 @@ def App_Set_U_Modify_Get(request):
 def App_Set_Main_Get(request):
     print(f'App_Set_Main_Get : {request}')
     AppSignUp_Service().hook()
-    return JsonResponse({'Response Test ': 'SUCCESS'})
+    return JsonResponse({'Response originTest ': 'SUCCESS'})
