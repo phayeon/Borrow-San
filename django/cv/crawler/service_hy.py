@@ -6,15 +6,15 @@ import time
 import urllib.request
 import os
 from tensorflow import keras
-os.environ['KMP_DUPLICATE_LIB_OK']='True'
+os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
 
 class Crawling(object):
     def __init__(self):
-        global path, search_hand, search_umb, count, save_hand, save_umb
+        global path, search_hand, search_umb, count, search_other, save_umb
         path = r'C:\Users\AIA\PycharmProjects\Borrow-San\django\cv\crawler\save'
-        search_hand = "손 사진"   # 이미지 이름
-        search_umb = "우산"   # 이미지 이름
-        count = 100    # 크롤링할 이미지 개수
+        search_other = "손 사진"   # 이미지 이름
+        search_umb = "umbrella design"   # 이미지 이름
+        count = 10000    # 크롤링할 이미지 개수
         save_hand = f'{path}\\hands'  # 이미지들을 저장할 폴더 주소
         save_umb = f'{path}\\umbrellas'
 
@@ -23,10 +23,10 @@ class Crawling(object):
         options.headless = True
         options.add_argument("window-size=1920x1080")
 
-        driver = webdriver.Chrome(options=options)  #options=options
+        driver = webdriver.Chrome(r'C:\Users\AIA\PycharmProjects\Borrow-San\django\cv\crawler\data\chromedriver.exe')  #options=options
         driver.get("https://www.google.co.kr/imghp?hl=ko&tab=wi&ogbl")
         elem = driver.find_element_by_name("q")
-        elem.send_keys(search_hand)
+        elem.send_keys(search_umb)
 
         elem.send_keys(Keys.RETURN)
 
@@ -38,7 +38,6 @@ class Crawling(object):
         # 스크롤 끝까지 내리기
 
         while True:
-
             driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
             # 페이지 로딩 기다리기
             time.sleep(SCROLL_PAUSE_TIME)
@@ -52,21 +51,20 @@ class Crawling(object):
                 except:
                     break
             last_height = new_height
-
         #이미지 찾고 다운받기
         images = driver.find_elements_by_css_selector(".rg_i.Q4LuWd")
 
         for i in range(count):
             try:
-                images[i].click() # 이미지 클릭
+                images[i].click()   # 이미지 클릭
                 time.sleep(1)
                 imgUrl = driver.find_element_by_css_selector(".n3VNCb").get_attribute("src")
-                urllib.request.urlretrieve(imgUrl, save_hand + '/' + str(i) + ".jpg")    # 이미지 다운
+                urllib.request.urlretrieve(imgUrl, save_umb + '/' + "umb" + str(i+434) + "_hy.jpg")    # 이미지 다운
             except:
                 pass
         driver.close()
 
-    def image_labeling(self):
+    def image_show(self):
         img = keras.preprocessing.image.load_img(f'{save_umb}\\umbrella(1).jpg', target_size=(250, 250))
         img = keras.preprocessing.image.img_to_array(img)
         print(img)
@@ -95,4 +93,5 @@ class Crawling(object):
         plt.show()
 
 if __name__ == '__main__':
-    Crawling().image_labeling()
+    Crawling().image_crawling()
+    # Crawling().image_show()

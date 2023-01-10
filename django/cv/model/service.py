@@ -22,28 +22,24 @@ class preprocessing(object):
         img_size = (0, 0)
         flags = cv2.COLOR_BGR2RGB
 
-    # https://velog.io/@jaehyeong/OpenCV%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%EA%B8%B0%EC%B4%88-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%B2%98%EB%A6%AC-with-Python
-    # 위 링크 참고
-
     def hook(self):
         self.img_flags(data_path)
-        self.resize()
-        self.canny_edge()
-        self.save_img()
-
+        self.spec()
+        # self.resize()
+        # self.canny_edge()
+        # self.save_img()
 
     def img_flags(self, folderPath):
         global img
         print("이미지 확인 중")
-        filePath = [os.path.join(folderPath, i) for i in os.listdir(folderPath)]
+        for i in os.listdir(folderPath):
+            for j in i.class_names:
+                filePath = os.path.join(folderPath, i, j)
         img = [cv2.imread(i, flags=flags) for i in filePath]
         return img
 
     def spec(self):
-        self.img_flags(flags=cv2.COLOR_BGR2RGB, filename=None)
-        print(f'타입 확인 :{type(img)}')
-        print(f'이미지 사이즈 :{img.shape}')
-        print(f'행렬 출력 :{img}')
+        [print(f'타입 확인 :{type(i)}\n이미지 사이즈 :{i.shape}\n행렬 출력 :{i}') for i in img]
 
     def resize(self):
         global img_resize
@@ -236,5 +232,5 @@ class Modelling(object):
 
 
 if __name__ == '__main__':
-    # preprocessing().hook()
-    Modelling().hook()
+    preprocessing().hook()
+    # Modelling().hook()
