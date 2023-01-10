@@ -10,24 +10,16 @@ os.environ['KMP_DUPLICATE_LIB_OK']='True'
 
 class Crawling(object):
     def __init__(self):
-        global path, search_hand, search_face, search_umb, count, save_hand, save_face, save_umb, search_cloth, save_cloth, hand_language
-        path = r'C:\Users\bitcamp\PycharmProjects\Borrow-San\django\img_detect_lee\save'
-        search_hand = "손 사진"  # 이미지 이름
-        search_face = "얼굴 사진"
-        search_cloth = "옷 사진"
-        search_umb = "우산 사진"  # 이미지 이름
+        global count, hand_path, hand_words, face_words
         count = 10000  # 크롤링할 이미지 개수
-        save_hand = r"C:\Users\bitcamp\PycharmProjects\Borrow-San\django\img_detect_lee\save\hand"  # 이미지들을 저장할 폴더 주소
-        save_face = r"C:\Users\bitcamp\PycharmProjects\Borrow-San\django\img_detect_lee\save\face"
-        save_cloth = r"C:\Users\bitcamp\PycharmProjects\Borrow-San\django\img_detect_lee\save\cloth"
-        save_umb = r"C:\Users\bitcamp\PycharmProjects\Borrow-San\django\img_detect_lee\save\umbrella"
+        hand_path = r"D:\hand"
 
-        hand_language = ["手", "hand", "χέρι", "tangan", "қол", "mà", "ਹੱਥ", "हात", "idejn", "ହାତ",
-                         "ಕೈ", "hånd", "mão", "mano", "ręka", "လက်", "qo'l", "руку", "käsi", "kamay",
-                         "ձեռքը", "হাত", "kéz", "hönd", "हाथ", "ръка", "əl", "ხელი", "हस्त", "มือ",
-                         "dorë"]
+        hand_words = ["手", "hand", "χέρι", "tangan", "қол", "mà", "ਹੱਥ", "हात", "idejn", "ହାତ",
+                        "ಕೈ", "hånd", "mão", "mano", "ręka", "လက်", "qo'l", "руку", "käsi", "kamay",
+                        "ձեռքը", "হাত", "kéz", "hönd", "हाथ", "ръка", "əl", "ხელი", "हस्त", "มือ",
+                        "dorë"]
 
-        face_language = ["nägu", "лице", "nkhope", "ýüzi", "tarehy", "waji", "vizaĝo", "tvář", "ચહેરો", "മുഖം", "face",
+        face_words = ["nägu", "лице", "nkhope", "ýüzi", "tarehy", "waji", "vizaĝo", "tvář", "ચહેરો", "മുഖം", "face",
                          "πρόσωπο", "muka", "gezicht", "अनुहार", "wiċċ", "ansikte", "ମୁହଁ", "ಮುಖ", "ansikt", "нүүр",
                          "ansigt", "rostro", "faccia", "Twarz", "चेहरा", "မျက်နှာ", "tvár", "yuz", "ubuso", "Visage",
                          "Gesicht", "hmai", "обличчя", "चेरो", "wyneb", "ໃບຫນ້າ", "මුහුණ", "sejas", "đối mặt", "faciem",
@@ -36,11 +28,10 @@ class Crawling(object):
                          "სახე", "йөз", "चेहरा", "gesig", "ubuso", "ใบหน้า", "fytyrë", "脸", "yüz", "चेहरा", "nawong",
                          "ፊት", "臉", "ముఖం"]
 
-
     def image_crawling(self):
-        for x,y in enumerate(hand_language):
+        for x,y in enumerate(hand_words):
             search = y
-            save_path = r"D:\hand"
+            save_path = hand_path
 
             options = webdriver.ChromeOptions()
             options.headless = True
@@ -86,16 +77,16 @@ class Crawling(object):
 
                 try:
                     images[i].click()  # 이미지 클릭
-                    time.sleep(1)
+                    time.sleep(5)
 
                     imgUrl = driver.find_element_by_css_selector(".n3VNCb").get_attribute("src")
-                    urllib.request.urlretrieve(imgUrl, save_path + '/' + str(i) + ".jpg")    # 이미지 다운
+                    urllib.request.urlretrieve(imgUrl, save_path + '/' + str(x) + '-' + str(i) + ".jpg")    # 이미지 다운
                 except:
                     pass
             driver.close()
-
+'''
     def image_labeling(self):
-        img = keras.preprocessing.image.load_img(r'C:\Users\bitcamp\PycharmProjects\Borrow-San\django\img_detect_lee\save\umbrella\umbrella (1).jpg', target_size=(250, 250))
+        img = keras.preprocessing.image.load_img(hand_path, target_size=(250, 250))
         img = keras.preprocessing.image.img_to_array(img)
         print(img)
 
@@ -121,8 +112,7 @@ class Crawling(object):
         plt.title(class_names[y[-1]])
         plt.axis("off")
         plt.show()
-
-
+'''
 
 if __name__ == '__main__':
         Crawling().image_crawling()
