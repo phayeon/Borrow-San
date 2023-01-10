@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  db:
+    image: borrowsandb:1.0
+    container_name: bsdb
+    build: ./docker/mysql
+    restart: always
+    tty: true
+    environment:
+      MYSQL_DATABASE: mydb
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_HOST: root
+    expose:
+      - '3306'
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./docker/mysql/conf.d:/etc/mysql/conf.d
+      - ./docker/mysql/initdb.d:/docker-entrypoint-initdb.d
+
+    networks:
+      - local-net
+
+  api:
+    image: borrowsanapi:1.0
+    links:
+      - db
+    container_name: "bsapi"
+    build: ./docker/api
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    networks:
+      - local-net
+networks:
+  local-net:
+    driver: bridge

@@ -1,0 +1,7 @@
+fastapi
+FastAPI-SQLAlchemy==0.2.1
+mysqlclient
+pymysql
+sqlalchemy
+sqlalchemy_utils
+uvicorn
