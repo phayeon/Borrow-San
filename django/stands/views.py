@@ -10,5 +10,5 @@ from stands.service import Mng_BoxService
 def Mng_Box_Get(request):
     print(f'Mng_Box_Get : {request}')
     Mng_BoxService().hook()
-    return JsonResponse({'Response Test ': 'SUCCESS'})
+    return JsonResponse({'Response originTest ': 'SUCCESS'})
 

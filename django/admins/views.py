@@ -6,4 +6,4 @@ from rest_framework.parsers import JSONParser
 @parser_classes([JSONParser])
 def managing(request):
     print(f'Enter Manage with {request}')
-    return JsonResponse({'Response Test ': 'SUCCESS'})
+    return JsonResponse({'Response originTest ': 'SUCCESS'})
