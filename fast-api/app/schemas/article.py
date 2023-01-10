@@ -3,8 +3,11 @@ import pydantic
 
 
 class Alticle(pydantic.BaseModel):
-    art_seq: int
+    article_id: int
     title: str
-    content: str
+    type: str
+    text: str
+    reference_id : str
     create_at: datetime
     updated_at: datetime
+
