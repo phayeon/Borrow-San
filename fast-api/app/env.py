@@ -5,7 +5,7 @@ HOSTNAME = 'host.docker.internal'
 PORT = 3306
 USERNAME = 'root'
 PASSWORD = 'root'
-DATABASE = 'mydb'
+DATABASE = 'bsdb'
 CHARSET = 'utf8'
 
 DB_url = f"mysql+pymysql://{USERNAME}:{PASSWORD}@{HOSTNAME}:{PORT}/{DATABASE}"

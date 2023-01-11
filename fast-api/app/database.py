@@ -8,8 +8,8 @@ Base.query = SessionLocal.query_property()
 
 
 def get_db():
+    db = SessionLocal()
     try:
-        db = SessionLocal()
         yield db
     finally:
         db.close()
