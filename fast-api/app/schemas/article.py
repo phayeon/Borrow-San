@@ -2,7 +2,7 @@ from datetime import datetime
 import pydantic
 
 
-class Alticle(pydantic.BaseModel):
+class Article(pydantic.BaseModel):
     article_id: int
     title: str
     type: str
