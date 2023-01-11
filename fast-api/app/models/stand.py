@@ -3,12 +3,11 @@ from uuid import uuid4
 from pydantic import BaseConfig
 from sqlalchemy.orm import relationship
 from sqlalchemy_utils import UUIDType
-from .mixins import TimestampMixin
 from ..database import Base
 from sqlalchemy import Column, String, Integer
 
 
-class Stand(Base, TimestampMixin):
+class Stand(Base):
 
     __tablename__ = "stands"
     stand_id = Column(UUIDType(binary=False), primary_key=True, default=uuid4)
@@ -16,9 +15,7 @@ class Stand(Base, TimestampMixin):
     latitude = Column(Integer)
     longitude = Column(Integer)
 
-
-    umbrella = relationship('Umbrella', back_populates='stand')
-
+    umbrellas = relationship('Umbrella', back_populates='stand')
 
     class Config:
         BaseConfig.arbitrary_types_allowed = True
