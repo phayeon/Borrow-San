@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="bsdb@localhost">
+  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.43">
+    <root id="1">
+      <DefaultCasing>exact</DefaultCasing>
+      <DefaultEngine>InnoDB</DefaultEngine>
+      <DefaultTmpEngine>InnoDB</DefaultTmpEngine>
+      <ServerVersion>5.7.40</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="bsdb">
+      <Current>1</Current>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="performance_schema"/>
+    <schema id="6" parent="1" name="sys"/>
+    <table id="7" parent="2" name="admins">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
+    </table>
+    <table id="8" parent="2" name="articles">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
+    </table>
+    <table id="9" parent="2" name="users">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
+    </table>
+    <column id="10" parent="7" name="admin_id">
+      <DataType>char(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="11" parent="7" name="name">
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <index id="12" parent="7" name="PRIMARY">
+      <ColNames>admin_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="13" parent="7" name="name">
+      <ColNames>name</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="14" parent="7" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="15" parent="7" name="name">
+      <UnderlyingIndexName>name</UnderlyingIndexName>
+    </key>
+    <column id="16" parent="8" name="create_at">
+      <DataType>timestamp|0s</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="17" parent="8" name="updated_at">
+      <DataType>timestamp|0s</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <NotNull>1</NotNull>
+      <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
+      <Position>2</Position>
+    </column>
+    <column id="18" parent="8" name="article_id">
+      <AutoIncrement>1</AutoIncrement>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="19" parent="8" name="title">
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="20" parent="8" name="type">
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="21" parent="8" name="text">
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <column id="22" parent="8" name="reference_id">
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <column id="23" parent="8" name="user_id">
+      <DataType>char(32)|0s</DataType>
+      <Position>8</Position>
+    </column>
+    <foreign-key id="24" parent="8" name="articles_ibfk_1">
+      <ColNames>user_id</ColNames>
+      <RefColNames>user_id</RefColNames>
+      <RefTableName>users</RefTableName>
+    </foreign-key>
+    <index id="25" parent="8" name="PRIMARY">
+      <ColNames>article_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="26" parent="8" name="user_id">
+      <ColNames>user_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="27" parent="8" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="28" parent="9" name="create_at">
+      <DataType>timestamp|0s</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="29" parent="9" name="updated_at">
+      <DataType>timestamp|0s</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <NotNull>1</NotNull>
+      <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
+      <Position>2</Position>
+    </column>
+    <column id="30" parent="9" name="user_id">
+      <DataType>char(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="31" parent="9" name="age">
+      <DataType>int(11)|0s</DataType>
+      <Position>4</Position>
+    </column>
+    <column id="32" parent="9" name="address">
+      <DataType>varchar(20)|0s</DataType>
+      <Position>5</Position>
+    </column>
+    <column id="33" parent="9" name="most_use_loc">
+      <DataType>varchar(20)|0s</DataType>
+      <Position>6</Position>
+    </column>
+    <column id="34" parent="9" name="cur_lat">
+      <DataType>varchar(20)|0s</DataType>
+      <Position>7</Position>
+    </column>
+    <column id="35" parent="9" name="cur_lng">
+      <DataType>varchar(20)|0s</DataType>
+      <Position>8</Position>
+    </column>
+    <column id="36" parent="9" name="birth">
+      <DataType>varchar(20)|0s</DataType>
+      <Position>9</Position>
+    </column>
+    <column id="37" parent="9" name="grade">
+      <DataType>varchar(20)|0s</DataType>
+      <Position>10</Position>
+    </column>
+    <column id="38" parent="9" name="pay_info">
+      <DataType>varchar(20)|0s</DataType>
+      <Position>11</Position>
+    </column>
+    <column id="39" parent="9" name="password">
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>12</Position>
+    </column>
+    <column id="40" parent="9" name="email">
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>13</Position>
+    </column>
+    <column id="41" parent="9" name="gender">
+      <DataType>varchar(20)|0s</DataType>
+      <Position>14</Position>
+    </column>
+    <column id="42" parent="9" name="token">
+      <DataType>varchar(20)|0s</DataType>
+      <Position>15</Position>
+    </column>
+    <column id="43" parent="9" name="admin_id">
+      <DataType>char(32)|0s</DataType>
+      <Position>16</Position>
+    </column>
+    <foreign-key id="44" parent="9" name="users_ibfk_1">
+      <ColNames>admin_id</ColNames>
+      <RefColNames>admin_id</RefColNames>
+      <RefTableName>admins</RefTableName>
+    </foreign-key>
+    <index id="45" parent="9" name="PRIMARY">
+      <ColNames>user_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="46" parent="9" name="email">
+      <ColNames>email</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="47" parent="9" name="admin_id">
+      <ColNames>admin_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="48" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="49" parent="9" name="email">
+      <UnderlyingIndexName>email</UnderlyingIndexName>
+    </key>
+  </database-model>
+</dataSource>
