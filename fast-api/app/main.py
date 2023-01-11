@@ -9,8 +9,8 @@ from fastapi import FastAPI, APIRouter
 from .routers.user import router as user_router
 from .routers.admin import router as admin_router
 from .routers.article import router as article_router
-from .routers.umbrella import router as article_router
-from .routers.stand import router as article_router
+from .routers.umbrella import router as umbrella_router
+from .routers.stand import router as stand_router
 
 router = APIRouter()
 router.include_router(user_router, prefix="/users", tags=["users"])

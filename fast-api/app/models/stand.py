@@ -1,4 +1,6 @@
 from uuid import uuid4
+
+from pydantic import BaseConfig
 from sqlalchemy.orm import relationship
 from sqlalchemy_utils import UUIDType
 from .mixins import TimestampMixin
@@ -19,4 +21,4 @@ class Stand(Base, TimestampMixin):
 
 
     class Config:
-        arbitrary_types_allowed = True
+        BaseConfig.arbitrary_types_allowed = True
