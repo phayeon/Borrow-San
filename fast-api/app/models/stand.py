@@ -14,7 +14,6 @@ class Stand(Base, TimestampMixin):
     latitude = Column(Integer)
     longitude = Column(Integer)
 
-
     umbrella = relationship('Umbrella', back_populates='stand')
 
 

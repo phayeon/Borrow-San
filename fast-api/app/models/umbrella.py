@@ -14,7 +14,7 @@ class Umbrella(Base, TimestampMixin):
     disrepair_rate = Column(Integer, nullable=False)
     image_url = Column(String(50), nullable=False)
     status = Column(String(10), nullable=False)
-    stand_id = Column(UUIDType(binary=False), ForeignKey(''))
+    stand_id = Column(UUIDType(binary=False), ForeignKey('stand.stand_id'))
 
     stand = relationship('Stand', back_populates='umbrellas')
 

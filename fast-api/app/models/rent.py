@@ -1,6 +1,5 @@
 from sqlalchemy.orm import relationship
 from sqlalchemy_utils import UUIDType
-
 from .mixins import TimestampMixin
 from ..database import Base
 from sqlalchemy import Column, Integer, ForeignKey, DATETIME as Datetime

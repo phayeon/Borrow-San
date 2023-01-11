@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-import app.repositories.umbrella as dao
+import app.repositories.rent as dao
 
 router = APIRouter()
 
