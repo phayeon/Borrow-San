@@ -1,6 +1,6 @@
 import pymysql
 from sqlalchemy.orm import Session
-from fast_api.app.models.article import Article
+from app.models.article import Article
 
 pymysql.install_as_MySQLdb()
 
